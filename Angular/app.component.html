@@ -1,0 +1,36 @@
+<div align="center">
+  <h1>LISTA DE USUARIOS REGISTRADOS</h1>
+  <table border="1" *ngIf="hayRegistros(); else sin">
+    <tr>
+      <td>ID</td>
+      <td>NOMBRE</td>
+      <td>TELEFONO</td>
+      <td>EMAIL</td>
+      <td>BORRAR</td>
+      <td>SELECCIONAR</td>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+      <td> {{usuario.idUsuario }} </td>
+      <td> {{usuario.nombre }} </td>
+      <td> {{usuario.telefono }} </td>
+      <td> {{usuario.email }} </td>
+      <td> <button (click)="bajaUsuario(usuario.idUsuario)"> Borrar </button> </td>
+      <td> <button (click)="seleccionarUsuario(usuario.idUsuario)"> Seleccionar </button> </td>
+    </tr>
+  </table>
+
+  <ng-template #sin>
+    <p>No hay usuarios registrados.</p>
+  </ng-template>
+
+  <div>
+    <p> Nombre: <input type="text" [(ngModel)]="usuario.nombre" /> </p>
+    <p> Telefono: <input type="number" [(ngModel)]="usuario.telefono" /> </p>
+    <p> Email: <input type="text" [(ngModel)]="usuario.email" /> </p>
+    <p> 
+      <button (click)="altaUsuario()"> AGREGAR </button> 
+      <button (click)="editarUsuario()"> MODIFICAR </button> 
+    </p>
+  </div>
+
+</div>
