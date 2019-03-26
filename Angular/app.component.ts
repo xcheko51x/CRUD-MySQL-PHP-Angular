@@ -69,6 +69,10 @@ export class AppComponent implements OnInit {
   }
 
   hayRegistros() {
-    return true;
+    if(this.usuarios == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
