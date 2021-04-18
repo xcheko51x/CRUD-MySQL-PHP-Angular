@@ -11,15 +11,15 @@
   $conexion = conexion(); // CREA LA CONEXION
   
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "INSERT INTO usuarios(nombre, telefono, email) VALUES
-                  ('$params->nombre',$params->telefono, '$params->email')");    
+  mysqli_query($conexion, "INSERT INTO usuarios(producto,cantidad,precio) VALUES
+                  ('$params->producto',$params->cantidad, '$params->precio')");    
   
   class Result {}
 
   // GENERA LOS DATOS DE RESPUESTA
   $response = new Result();
   $response->resultado = 'OK';
-  $response->mensaje = 'SE REGISTRO EXITOSAMENTE EL USUARIO';
+  $response->mensaje = 'SE REGISTRO EXITOSAMENTE';
 
   header('Content-Type: application/json');
 
